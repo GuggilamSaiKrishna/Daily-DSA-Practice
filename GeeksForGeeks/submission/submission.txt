@@ -1,32 +1,15 @@
-class Solution {
-    public ArrayList<Integer> minAnd2ndMin(int[] arr) {
-        ArrayList<Integer> result = new ArrayList<>();
+import java.util.Arrays;
 
+class Solution {
+    int missingNum(int arr[]) {
         Arrays.sort(arr);
 
-        if (arr.length < 2) {
-            result.add(-1);
-            return result;
-        }
-
-        int min = arr[0];
-        int secondMin = -1;
-
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] > min) {
-                secondMin = arr[i];
-                break;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != i + 1) {
+                return i + 1;
             }
         }
 
-        if (secondMin == -1) {
-            result.add(-1);
-            return result;
-        }
-
-        result.add(min);
-        result.add(secondMin);
-
-        return result;
+        return arr.length + 1;
     }
 }
