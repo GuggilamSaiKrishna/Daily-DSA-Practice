@@ -1,15 +1,11 @@
+
+
+import java.util.*;
+
 class Solution {
-    public int countOfElements(int x, List<Integer> arr) {
-        int count = 0;
+    public int thirdLargest(List<Integer> arr) {
+        Collections.sort(arr);
 
-        for (int i = 0; i < arr.size(); i++) {
-            if (arr.get(i) < x) {
-                count++;
-            } else {
-                break;
-            }
-        }
-
-        return count;
+        return arr.get(arr.size() - 3);
     }
 }
