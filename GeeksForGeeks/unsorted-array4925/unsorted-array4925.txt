@@ -1,0 +1,30 @@
+class Solution {
+    public int findElement(int[] arr) {
+        int n = arr.length;
+
+        for (int i = 1; i < n - 1; i++) {
+            boolean greaterThanLeft = true;
+            boolean smallerThanRight = true;
+
+            for (int j = 0; j < i; j++) {
+                if (arr[j] >= arr[i]) {
+                    greaterThanLeft = false;
+                    break;
+                }
+            }
+
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] <= arr[i]) {
+                    smallerThanRight = false;
+                    break;
+                }
+            }
+
+            if (greaterThanLeft && smallerThanRight) {
+                return arr[i];
+            }
+        }
+
+        return -1;
+    }
+}
