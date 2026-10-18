@@ -1,28 +1,27 @@
 class Solution {
-    int typeOfArr(int arr[]) {
+    public int findElement(int[] arr) {
         int n = arr.length;
-        int asc = 0, desc = 0;
 
-        for (int i = 0; i < n - 1; i++) {
-            if (arr[i] > arr[i + 1]) {
-                asc++;
-            } else {
-                desc++;
+        int[] leftMax = new int[n];
+        int[] rightMin = new int[n];
+
+        leftMax[0] = arr[0];
+        for (int i = 1; i < n; i++) {
+            leftMax[i] = Math.max(leftMax[i - 1], arr[i]);
+        }
+
+        rightMin[n - 1] = arr[n - 1];
+        for (int i = n - 2; i >= 0; i--) {
+            rightMin[i] = Math.min(rightMin[i + 1], arr[i]);
+        }
+
+        for (int i = 1; i < n - 1; i++) {
+            if (arr[i] > leftMax[i - 1] &&
+                arr[i] < rightMin[i + 1]) {
+                return arr[i];
             }
         }
 
-        if (asc == 0)
-            return 1;
-
-        if (desc == 0)
-            return 2;
-
-        if (asc == 1 && arr[n - 1] < arr[0])
-            return 4;
-
-        if (desc == 1 && arr[n - 1] > arr[0])
-            return 3;
-
-        return 0;
+        return -1;
     }
 }
