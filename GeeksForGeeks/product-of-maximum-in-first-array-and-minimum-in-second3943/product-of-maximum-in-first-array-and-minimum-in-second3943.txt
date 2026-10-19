@@ -1,0 +1,13 @@
+import java.util.Arrays;
+
+class Solution {
+    public long minMaxProduct(int[] arr1, int[] arr2) {
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+
+        long min = arr2[0];
+        long max = arr1[arr1.length - 1];
+
+        return max * min;
+    }
+}
