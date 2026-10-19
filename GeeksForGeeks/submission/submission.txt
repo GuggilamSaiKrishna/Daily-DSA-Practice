@@ -1,27 +1,32 @@
 class Solution {
-    public int findElement(int[] arr) {
-        int n = arr.length;
+    void rearrange(ArrayList<Integer> arr) {
+        ArrayList<Integer> ans1 = new ArrayList<>();
+        ArrayList<Integer> ans2 = new ArrayList<>();
 
-        int[] leftMax = new int[n];
-        int[] rightMin = new int[n];
-
-        leftMax[0] = arr[0];
-        for (int i = 1; i < n; i++) {
-            leftMax[i] = Math.max(leftMax[i - 1], arr[i]);
-        }
-
-        rightMin[n - 1] = arr[n - 1];
-        for (int i = n - 2; i >= 0; i--) {
-            rightMin[i] = Math.min(rightMin[i + 1], arr[i]);
-        }
-
-        for (int i = 1; i < n - 1; i++) {
-            if (arr[i] > leftMax[i - 1] &&
-                arr[i] < rightMin[i + 1]) {
-                return arr[i];
+        for (int i = 0; i < arr.size(); i++) {
+            if (arr.get(i) >= 0) {
+                ans1.add(arr.get(i));
+            } else {
+                ans2.add(arr.get(i));
             }
         }
 
-        return -1;
+        int k = 0, j = 0;
+
+        for (int i = 0; i < arr.size(); i++) {
+            if (i % 2 == 0 && k < ans1.size()) {
+                arr.set(i, ans1.get(k));
+                k++;
+            } else if (i % 2 != 0 && j < ans2.size()) {
+                arr.set(i, ans2.get(j));
+                j++;
+            } else if (k < ans1.size()) {
+                arr.set(i, ans1.get(k));
+                k++;
+            } else {
+                arr.set(i, ans2.get(j));
+                j++;
+            }
+        }
     }
 }
