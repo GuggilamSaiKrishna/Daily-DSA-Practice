@@ -1,0 +1,17 @@
+
+class Solution {
+    public int leftCandies(int n, int m) {
+        int i = 1;
+
+        for (; m >= i; ) {
+            m = m - i;
+            i++;
+
+            if (i > n) {
+                i = 1;
+            }
+        }
+
+        return m;
+    }
+}
