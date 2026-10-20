@@ -1,16 +1,31 @@
 class Solution {
     void pushZerosToEnd(int[] arr) {
-        int k = 0;
+        // code here
+        int n = arr.length;
+        int[] arr1 = new int[n];
+        int[] arr2 = new int[n];
+
+        int zero = 0, n1 = 0;
 
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] != 0) {
-                arr[k] = arr[i];
-                k++;
+            if (arr[i] == 0) {
+                arr1[zero] = arr[i];
+                zero++;
+            } else {
+                arr2[n1] = arr[i];
+                n1++;
             }
         }
 
-        while (k < arr.length) {
-            arr[k] = 0;
+        int k = 0;
+
+        for (int i = 0; i < n1; i++) {
+            arr[k] = arr2[i];
+            k++;
+        }
+
+        for (int i = 0; i < zero; i++) {
+            arr[k] = arr1[i];
             k++;
         }
     }
