@@ -1,0 +1,32 @@
+import java.util.Arrays;
+
+class Solution {
+    void segregateEvenOdd(int arr[]) {
+        int n = arr.length;
+        int arr1[] = new int[n];
+        int arr2[] = new int[n];
+
+        int even = 0, odd = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (arr[i] % 2 == 0) {
+                arr1[even++] = arr[i];
+            } else {
+                arr2[odd++] = arr[i];
+            }
+        }
+
+        Arrays.sort(arr1, 0, even);
+        Arrays.sort(arr2, 0, odd);
+
+        int k = 0;
+
+        for (int i = 0; i < even; i++) {
+            arr[k++] = arr1[i];
+        }
+
+        for (int i = 0; i < odd; i++) {
+            arr[k++] = arr2[i];
+        }
+    }
+}
