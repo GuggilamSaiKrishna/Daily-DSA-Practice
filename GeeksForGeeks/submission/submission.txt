@@ -1,14 +1,16 @@
 class Solution {
-    int countZeroes(int[] arr) {
-        // code here
+    public int visibleBuildings(int[] arr) {
+        int n = arr.length;
         int count = 0;
-        for(int i = 0;i<arr.length ;i++)
-        {
-            if(arr[i]==0)
-            {
+        int max = Integer.MIN_VALUE;
+
+        for (int i = 0; i < n; i++) {
+            if (arr[i] > max) {
                 count++;
+                max = arr[i];
             }
         }
+
         return count;
     }
 }
