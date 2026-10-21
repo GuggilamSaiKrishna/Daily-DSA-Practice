@@ -1,14 +1,15 @@
-class Solution {
 
+
+class Solution {
     int maxValue(int arr[]) {
-        // Complete the function\
-        int p=0,sum=0;
+        int sum = 0;
         Arrays.sort(arr);
-        for(int i = arr.length-1; i>0 ; i--)
-        {
-            p=arr[i]*arr[i-1];
-            sum +=p;
+
+        for (int i = arr.length - 1; i > 0; i--) {
+            int p = arr[i] * arr[i - 1];
+            sum += p;
         }
+
         return sum;
     }
 }
