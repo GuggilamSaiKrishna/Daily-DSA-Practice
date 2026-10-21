@@ -6,7 +6,7 @@ class Solution {
         Arrays.sort(arr);
 
         for (int i = arr.length - 1; i > 0; i--) {
-            int p = arr[i] * arr[i - 1];
+            int p = arr[i] * i;
             sum += p;
         }
 
