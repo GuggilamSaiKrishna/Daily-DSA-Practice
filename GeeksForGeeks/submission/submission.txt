@@ -1,12 +1,17 @@
 class Solution {
     public int firstSearch(int[] arr, int k) {
-        // Code Here
         Arrays.sort(arr);
-        if(k>arr.length)
-        {
+        int c = 0;
+        if (k < 1 || k > arr.length) {
             return -1;
         }
 
-        return arr[k-2];
+        for(int i = 0 ; i<arr.length;i++)
+        {
+            if(arr[i]==k){
+                c = i;
+            }
+        }
+        return c;
     }
 }
