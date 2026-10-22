@@ -1,15 +1,6 @@
-
-
 class Solution {
-    int maxValue(int arr[]) {
-        int sum = 0;
+    void segregate0and1(int[] arr) {
+        // code here
         Arrays.sort(arr);
-
-        for (int i = arr.length - 1; i > 0; i--) {
-            int p = arr[i] * i;
-            sum += p;
-        }
-
-        return sum;
     }
 }
