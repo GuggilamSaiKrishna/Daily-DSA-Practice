@@ -1,0 +1,35 @@
+
+    class Solution {
+        void nextPermutation(int[] arr) {
+            int n = arr.length;
+            int p = -1;
+
+            // Step 1: Find pivot
+            for (int i = n - 2; i >= 0; i--) {
+                if (arr[i] < arr[i + 1]) {
+                    p = i;
+                    break;
+                }
+            }
+
+            // Step 2: If no pivot exists, reverse entire array
+            if (p == -1) {
+                reverse(arr, 0, n - 1);
+                return;
+            }
+
+            // Step 3: Find the next greater element
+            for (int i = n - 1; i > p; i--) {
+                if (arr[i] > arr[p]) {
+                    int temp = arr[i];
+                    arr[i] = arr[p];
+                    arr[p] = temp;
+                    break;
+                }
+            }
+
+            // Step 4: Reverse the suffix
+            reverse(arr, p + 1, n - 1);
+        }
+
+        void reverse(int[] arr, int left, int right) {
