@@ -1,0 +1,16 @@
+import java.util.ArrayList;
+
+class Solution {
+    public static ArrayList<Integer> valEqualToPos(int[] arr) {
+        ArrayList<Integer> arr1 = new ArrayList<>();
+
+        for (int i = 0; i < arr.length; i++) {
+            // Check if the value matches the 1-based position (index + 1)
+            if (arr[i] == i + 1) {
+                arr1.add(arr[i]); // Or arr1.add(i + 1); since they are equal
+            }
+        }
+
+        return arr1;
+    }
+}
