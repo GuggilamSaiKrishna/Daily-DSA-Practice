@@ -1,0 +1,6 @@
+class Solution {
+    public boolean searchMatrix(int[][] mat, int x) {
+        // code here
+        
+    }
+}
