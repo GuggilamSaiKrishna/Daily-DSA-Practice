@@ -1,0 +1,30 @@
+
+class Solution {
+    public int maxHeight(int[] arr, int m) {
+
+        int max = 0;
+
+        for (int x : arr) {
+            if (x > max) {
+                max = x;
+            }
+        }
+
+        for (int h = max; h >= 0; h--) {
+
+            long wood = 0;
+
+            for (int x : arr) {
+                if (x > h) {
+                    wood += x - h;
+                }
+            }
+
+            if (wood >= m) {
+                return h;
+            }
+        }
+
+        return 0;
+    }
+}
